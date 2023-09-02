@@ -2,9 +2,10 @@ import { nanoid } from 'nanoid';
 import css from './ContactsForm.module.css';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { selectContacts } from 'redux/rootReducer';
 
 const ContactsForm = ({ addContact }) => {
-  const contacts = useSelector(state => state.contacts.contacts);
+  const contacts = useSelector(selectContacts);
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 

@@ -1,8 +1,9 @@
 import { useSelector } from 'react-redux';
 import css from './Fiter.module.css';
+import { selectFilter } from 'redux/rootReducer';
 
 const Filter = ({ handleFilterChange }) => {
-  const filter = useSelector(state => state.contacts.filter);
+  const filter = useSelector(selectFilter);
   const handleByFilter = e => {
     const value = e.target.value;
     handleFilterChange(value.trim().toLowerCase());

@@ -4,20 +4,21 @@ import ContactList from '../ContactList/ContactList';
 import Filter from '../Filter/Filter';
 
 import { useDispatch } from 'react-redux';
+import { deleteContact, setContacts, setFilter } from 'redux/rootReducer';
 
 const App = () => {
   const dispatch = useDispatch();
 
   const addContact = newContact => {
-    dispatch({ type: 'contacts/setContacts', payload: newContact });
+    dispatch(setContacts(newContact));
   };
 
   const handleFilterChange = value => {
-    dispatch({ type: 'contacts/setFilter', payload: value });
+    dispatch(setFilter(value));
   };
 
   const handleDeleteContact = id => {
-    dispatch({ type: 'contacts/deleteContacts', payload: id });
+    dispatch(deleteContact(id));
   };
 
   return (
